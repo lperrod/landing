@@ -3,7 +3,6 @@ package com.cmpl.landing.media;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,8 +33,7 @@ public class MediaController {
   }
 
   @GetMapping("/{mediaName:.+}")
-  public void serve(@PathVariable("mediaName") String mediaName, HttpServletResponse res) throws SQLException,
-      IOException {
+  public void serve(@PathVariable("mediaName") String mediaName, HttpServletResponse res) throws IOException {
     InputStream mediaContent = mediaService.read(mediaName);
     MediaType mediaType = detectMediaType(mediaContent, mediaName);
 
@@ -50,7 +48,7 @@ public class MediaController {
 
   @GetMapping("/{folderName}/{mediaName:.+}")
   public void serveFromFolder(@PathVariable("mediaName") String mediaName,
-      @PathVariable("folderName") String folderName, HttpServletResponse res) throws SQLException, IOException {
+      @PathVariable("folderName") String folderName, HttpServletResponse res) throws IOException {
     InputStream mediaContent = mediaService.read(folderName + File.separator + mediaName);
     MediaType mediaType = detectMediaType(mediaContent, mediaName);
 
