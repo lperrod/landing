@@ -5,7 +5,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
 import com.cmpl.landing.context.ContextHolder;
@@ -25,10 +25,9 @@ public class TemplateResolverConfiguration {
     FileTemplateResolver resolver = new FileTemplateResolver();
     resolver.setPrefix(contextHolder.getTemplateBasePath());
     resolver.setSuffix(".html");
-    resolver.setTemplateMode("HTML");
+    resolver.setTemplateMode("HTML5");
     resolver.setOrder(templateEngine.getTemplateResolvers().size());
     resolver.setCacheable(false);
-    resolver.setCheckExistence(true);
     templateEngine.addTemplateResolver(resolver);
   }
 
