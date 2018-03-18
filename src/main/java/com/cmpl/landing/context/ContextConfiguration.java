@@ -12,6 +12,9 @@ public class ContextConfiguration {
   @Value("${templateBasePath}")
   String templateBasePath;
 
+  @Value("${acceleratedMobilePageTemplatePath}")
+  String acceleratedMobilePageTemplatePath;
+
   @Value("${mediaBasePath}")
   String mediaBasePath;
 
@@ -20,6 +23,7 @@ public class ContextConfiguration {
     ContextHolder contextHolder = new ContextHolder();
     contextHolder.setMediaBasePath(mediaBasePath);
     contextHolder.setTemplateBasePath(templateBasePath);
+    contextHolder.setAcceleratedMobilePageTemplatePath(acceleratedMobilePageTemplatePath);
     return contextHolder;
 
   }

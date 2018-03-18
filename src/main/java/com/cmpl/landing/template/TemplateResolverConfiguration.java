@@ -22,13 +22,22 @@ public class TemplateResolverConfiguration {
 
   @PostConstruct
   public void extension() {
-    FileTemplateResolver resolver = new FileTemplateResolver();
-    resolver.setPrefix(contextHolder.getTemplateBasePath());
-    resolver.setSuffix(".html");
-    resolver.setTemplateMode("HTML5");
-    resolver.setOrder(templateEngine.getTemplateResolvers().size());
-    resolver.setCacheable(false);
-    templateEngine.addTemplateResolver(resolver);
+    Integer order = templateEngine.getTemplateResolvers().size();
+    FileTemplateResolver pagesResolver = new FileTemplateResolver();
+    pagesResolver.setPrefix(contextHolder.getTemplateBasePath());
+    pagesResolver.setSuffix(".html");
+    pagesResolver.setTemplateMode("HTML5");
+    pagesResolver.setOrder(order);
+    pagesResolver.setCacheable(false);
+    templateEngine.addTemplateResolver(pagesResolver);
+
+    FileTemplateResolver mobilePagesResolver = new FileTemplateResolver();
+    mobilePagesResolver.setPrefix(contextHolder.getAcceleratedMobilePageTemplatePath());
+    mobilePagesResolver.setSuffix(".html");
+    mobilePagesResolver.setTemplateMode("HTML5");
+    mobilePagesResolver.setOrder(order + 1);
+    mobilePagesResolver.setCacheable(false);
+    templateEngine.addTemplateResolver(mobilePagesResolver);
   }
 
 }

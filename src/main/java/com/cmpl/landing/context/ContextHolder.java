@@ -4,6 +4,7 @@ public class ContextHolder {
 
   private String mediaBasePath;
   private String templateBasePath;
+  private String acceleratedMobilePageTemplatePath;
 
   public String getTemplateBasePath() {
     return templateBasePath;
@@ -21,4 +22,11 @@ public class ContextHolder {
     this.mediaBasePath = mediaBasePath;
   }
 
+  public String getAcceleratedMobilePageTemplatePath() {
+    return acceleratedMobilePageTemplatePath;
+  }
+
+  public void setAcceleratedMobilePageTemplatePath(String acceleratedMobilePageTemplatePath) {
+    this.acceleratedMobilePageTemplatePath = acceleratedMobilePageTemplatePath;
+  }
 }
