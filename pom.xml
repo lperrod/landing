@@ -11,7 +11,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <start-class>cmpl.Landing</start-class>
   </properties>
 
 
@@ -55,6 +54,9 @@
              <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                 <configuration>
+                     <executable>true</executable>
+                 </configuration>
                 <executions>
                     <execution>
                         <goals>
